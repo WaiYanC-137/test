@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'profile_update_screen.dart';
 
 void main() {
   runApp(FitbitApp());
@@ -17,6 +18,18 @@ class FitbitApp extends StatelessWidget {
           centerTitle: true,
         ),
         body: FitbitProfileCard(),
+        floatingActionButton: Builder(
+          builder: (context) => FloatingActionButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ProfileUpdateScreen()),
+              );
+            },
+            child: Icon(Icons.edit),
+            tooltip: 'Edit Profile',
+          ),
+        ),
       ),
     );
   }
